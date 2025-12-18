@@ -1,36 +1,78 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# İnanıcı Hukuk Bürosu Website
 
-## Getting Started
+A modern, fast, and trustworthy single-page website built with **Next.js 15 (App Router)** and **Tailwind CSS v4**.
 
-First, run the development server:
+## 🚀 Getting Started
 
+### Prerequisites
+- Node.js (v18 or later)
+- npm
+
+### Installation
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Run Locally
+```bash
+npm run dev
+# Open http://localhost:3000
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Build for Production
+```bash
+npm run build
+npm start
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🛠 Configuration & Editing
 
-## Learn More
+### Changing Content
+All content is hardcoded in specific components for simplicity and speed.
 
-To learn more about Next.js, take a look at the following resources:
+- **Menu & Header**: `components/Header.tsx`
+- **Hero / Main Text**: `components/Hero.tsx`
+- **About / Features**: `components/About.tsx`
+- **Services**: `components/Services.tsx`
+- **Team Members**: `components/Team.tsx`
+- **FAQs**: `components/FAQ.tsx`
+- **Contact Info**: `components/Contact.tsx`
+- **Footer**: `components/Footer.tsx`
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Changing WhatsApp Number
+Edit `components/WhatsApp.tsx`, `components/Header.tsx`, and `components/Hero.tsx`. Look for the URL:
+`https://wa.me/905001234567` (Replace `905001234567` with your actual number).
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Contact Form
+The contact form logic is in `app/actions.ts`.
+Currently, it logs submissions to the server console.
 
-## Deploy on Vercel
+To send emails:
+1. Sign up for a provider like **Resend** or **SendGrid**.
+2. Update `app/actions.ts` to use their SDK.
+3. Add environment variables in `.env.local`:
+   ```env
+   RESEND_API_KEY=re_123456...
+   CONTACT_EMAIL=info@inanicihukuk.com
+   ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🎨 Styling
+Styles are defined in `app/globals.css` using Tailwind v4 variables.
+- **Colors**: `navy-900`, `navy-800`, `gold-600`, etc. defined in `@theme` block.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## ✅ Verification Checklist
+- [x] **Smooth Scroll**: Clicking menu items scrolls gently to the section.
+- [x] **Responsiveness**: Site adapts to Mobile, Tablet, and Desktop.
+- [x] **SEO**: Turkish metadata is set in `app/layout.tsx`.
+- [x] **Forms**: Contact form validates inputs and triggers server action.
+
+## 📦 Deployment
+Recommended: **Vercel**
+1. Push to GitHub.
+2. Import project in Vercel.
+3. It detects Next.js automatically.
+4. Add Environment Variables if needed.
+5. Deploy.
+
+---
+© 2025 İnanıcı Hukuk Bürosu

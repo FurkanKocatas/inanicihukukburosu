@@ -1,26 +1,50 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --color-navy-900: #0f172a;
+  --color-navy-800: #1e293b;
+  --color-navy-700: #334155;
+  --color-gold-600: #d97706;
+  --color-gold-700: #b45309;
+  --color-offwhite: #f8fafc;
+  
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular, monospace;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+html {
+  scroll-behavior: smooth;
 }
+
+:root {
+  --background: #f8fafc; /* Off-white background */
+  --foreground: #0f172a; /* Navy text */
+}
+
+/* Force specific colors for consistency, we'll avoid system dark mode for now to ensure the specific 'Trustworthy' look unless requested. 
+   Actually, let's support dark mode but default to the professional light/navy theme. 
+   The prompt specifically asked for 'dark navy / charcoal / off-white' which implies a specific aesthetic.
+   I will set defaults to be the light/professional theme but allow dark mode overrides if system pref.
+*/
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #0f172a; /* Navy background */
+    --foreground: #f8fafc; /* Off-white text */
   }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+}
+
+/* Utility for section padding */
+.section-padding {
+  @apply py-16 px-4 md:px-8 lg:px-16;
+}
+
+.container-custom {
+  @apply max-w-7xl mx-auto;
 }
